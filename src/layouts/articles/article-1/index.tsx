@@ -1,62 +1,48 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Avatar, Button, Divider, Layout, Text } from '@ui-kitten/components';
-import { ImageOverlay } from './extra/image-overlay.component';
-import { HeartIcon, MessageCircleIcon } from './extra/icons';
-import { Article } from './extra/data';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Avatar, Button, Divider, Layout, Text } from "@ui-kitten/components";
+import { ImageOverlay } from "./extra/image-overlay.component";
+import { HeartIcon, MessageCircleIcon } from "./extra/icons";
+import { Article } from "./extra/data";
 
 const data: Article = Article.howToEatHealthy();
 
 export default (): React.ReactElement => (
   <Layout style={styles.container}>
-    <ImageOverlay
-      style={styles.headerContainer}
-      source={data.image}>
-      <Text
-        style={styles.headerTitle}
-        category='h1'
-        status='control'>
+    <ImageOverlay style={styles.headerContainer} source={data.image}>
+      <Text style={styles.headerTitle} category="h1" status="control">
         {data.title}
       </Text>
-      <Text
-        style={styles.headerDescription}
-        category='s1'
-        status='control'>
+      <Text style={styles.headerDescription} category="s1" status="control">
         {data.description}
       </Text>
     </ImageOverlay>
-    <Layout
-      style={styles.contentContainer}
-      level='1'>
-      <Text>
-        {data.content}
-      </Text>
+    <Layout style={styles.contentContainer} level="1">
+      <Text>{data.content}</Text>
     </Layout>
-    <Divider/>
+    <Divider />
     <View style={styles.activityContainer}>
-      <Avatar source={data.author.photo}/>
+      <Avatar source={data.author.photo} />
       <View style={styles.authoringInfoContainer}>
-        <Text>
-          {data.author.fullName}
-        </Text>
-        <Text
-          appearance='hint'
-          category='p2'>
+        <Text>{data.author.fullName}</Text>
+        <Text appearance="hint" category="p2">
           {data.date}
         </Text>
       </View>
       <Button
         style={styles.iconButton}
-        appearance='ghost'
-        status='basic'
-        accessoryLeft={MessageCircleIcon}>
+        appearance="ghost"
+        status="basic"
+        accessoryLeft={MessageCircleIcon}
+      >
         {`${data.comments.length}`}
       </Button>
       <Button
         style={styles.iconButton}
-        appearance='ghost'
-        status='danger'
-        accessoryLeft={HeartIcon}>
+        appearance="ghost"
+        status="danger"
+        accessoryLeft={HeartIcon}
+      >
         {`${data.likes.length}`}
       </Button>
     </View>
@@ -68,12 +54,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     minHeight: 256,
-    paddingVertical: 24,
+    paddingVertical: 25,
   },
   headerTitle: {
-    textAlign: 'center',
+    textAlign: "center",
     marginVertical: 24,
     zIndex: 1,
   },
@@ -85,8 +71,8 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   activityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 16,
   },
   authoringInfoContainer: {
@@ -97,4 +83,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
 });
-
