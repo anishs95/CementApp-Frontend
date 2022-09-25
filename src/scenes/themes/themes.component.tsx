@@ -1,5 +1,5 @@
-import React from 'react';
-import { ListRenderItemInfo, StyleSheet } from 'react-native';
+import React from "react";
+import { ListRenderItemInfo, StyleSheet } from "react-native";
 import {
   Divider,
   List,
@@ -7,32 +7,42 @@ import {
   Toggle,
   TopNavigation,
   TopNavigationAction,
-} from '@ui-kitten/components';
-import { ThemeCard } from './theme-card.component';
-import { SafeAreaLayout } from '../../components/safe-area-layout.component';
-import { MappingContextValue, ThemeContextValue, Theming } from '../../services/theme.service';
-import { ThemesService } from './themes.service';
-import { ThemeItem } from './type';
-import { appThemes } from '../../app/app-theming';
-import { MenuIcon } from '../../components/icons';
-import { RestartAppModal } from './restart-app-modal.component';
+} from "@ui-kitten/components";
+import { ThemeCard } from "./theme-card.component";
+import { SafeAreaLayout } from "../../components/safe-area-layout.component";
+import {
+  MappingContextValue,
+  ThemeContextValue,
+  Theming,
+} from "../../services/theme.service";
+import { ThemesService } from "./themes.service";
+import { ThemeItem } from "./type";
+import { appThemes } from "../../app/app-theming";
+import { MenuIcon } from "../../components/icons";
+import { RestartAppModal } from "./restart-app-modal.component";
 
 export const ThemesScreen = ({ navigation }): React.ReactElement => {
-
-  const mappingContext: MappingContextValue = React.useContext(Theming.MappingContext);
-  const themeContext: ThemeContextValue = React.useContext(Theming.ThemeContext);
-  const [evaToggleChecked, setEvaToggleChecked] = React.useState<boolean>(mappingContext.isEva());
-  const [restartModalVisible, setRestartModalVisible] = React.useState<boolean>(false);
+  const mappingContext: MappingContextValue = React.useContext(
+    Theming.MappingContext
+  );
+  const themeContext: ThemeContextValue = React.useContext(
+    Theming.ThemeContext
+  );
+  const [evaToggleChecked, setEvaToggleChecked] = React.useState<boolean>(
+    mappingContext.isEva()
+  );
+  const [restartModalVisible, setRestartModalVisible] =
+    React.useState<boolean>(false);
 
   const themes: ThemeItem[] = ThemesService.createThemeListItems(
     appThemes,
-    mappingContext.currentMapping,
+    mappingContext.currentMapping
   );
 
   const onEvaToggleCheckedChange = (checked: boolean): void => {
     setEvaToggleChecked(checked);
     setRestartModalVisible(true);
-    mappingContext.setCurrentMapping(checked ? 'eva' : 'material');
+    mappingContext.setCurrentMapping(checked ? "eva" : "material");
   };
 
   const onItemPress = (info: ListRenderItemInfo<ThemeItem>): void => {
@@ -40,7 +50,10 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
   };
 
   const isActiveTheme = (theme: ThemeItem): boolean => {
-    return mappingContext.currentMapping === theme.mapping && themeContext.currentTheme === theme.name;
+    return (
+      mappingContext.currentMapping === theme.mapping &&
+      themeContext.currentTheme === theme.name
+    );
   };
 
   const shouldDisableItem = (theme: ThemeItem): boolean => {
@@ -56,13 +69,12 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
   };
 
   const renderDrawerAction = (): React.ReactElement => (
-    <TopNavigationAction
-      icon={MenuIcon}
-      onPress={navigation.toggleDrawer}
-    />
+    <TopNavigationAction icon={MenuIcon} onPress={navigation.toggleDrawer} />
   );
 
-  const renderItem = (info: ListRenderItemInfo<ThemeItem>): React.ReactElement => (
+  const renderItem = (
+    info: ListRenderItemInfo<ThemeItem>
+  ): React.ReactElement => (
     <ThemeProvider theme={info.item.theme}>
       <ThemeCard
         style={styles.item}
@@ -85,14 +97,9 @@ export const ThemesScreen = ({ navigation }): React.ReactElement => {
   );
 
   return (
-    <SafeAreaLayout
-      style={styles.safeArea}
-      insets='top'>
-      <TopNavigation
-        title='Kitten Tricks'
-        accessoryLeft={renderDrawerAction}
-      />
-      <Divider/>
+    <SafeAreaLayout style={styles.safeArea} insets="top">
+      <TopNavigation title="Cement App" accessoryLeft={renderDrawerAction} />
+      <Divider />
       <List
         contentContainerStyle={styles.container}
         data={themes}
@@ -120,7 +127,7 @@ const styles = StyleSheet.create({
   },
   evaToggle: {
     margin: 8,
-    alignSelf: 'flex-end',
-    flexDirection: 'row-reverse',
+    alignSelf: "flex-end",
+    flexDirection: "row-reverse",
   },
 });

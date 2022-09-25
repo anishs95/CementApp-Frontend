@@ -128,11 +128,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.akveo.kittenTricks"
+        applicationId "com.siva.cements"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
-        versionName "2.4.0"
+        versionCode 1
+        versionName "1.0.0"
     }
     splits {
         abi {

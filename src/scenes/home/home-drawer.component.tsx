@@ -1,5 +1,5 @@
-import React, { ReactElement, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { ReactElement, useState } from "react";
+import { StyleSheet, View } from "react-native";
 import {
   Avatar,
   Divider,
@@ -9,11 +9,11 @@ import {
   Layout,
   Text,
   IndexPath,
-} from '@ui-kitten/components';
-import { BookIcon, GithubIcon } from '../../components/icons';
-import { SafeAreaLayout } from '../../components/safe-area-layout.component';
-import { WebBrowserService } from '../../services/web-browser.service';
-import { AppInfoService } from '../../services/app-info.service';
+} from "@ui-kitten/components";
+import { BookIcon, GithubIcon } from "../../components/icons";
+import { SafeAreaLayout } from "../../components/safe-area-layout.component";
+import { WebBrowserService } from "../../services/web-browser.service";
+import { AppInfoService } from "../../services/app-info.service";
 
 const version: string = AppInfoService.getVersion();
 
@@ -22,33 +22,35 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
 
   const DATA = [
     {
-      title: 'Libraries',
+      title: "Libraries",
       icon: GithubIcon,
       onPress: () => {
         navigation.toggleDrawer();
-        navigation.navigate('Libraries');
+        navigation.navigate("Libraries");
       },
     },
     {
-      title: 'Documentation',
+      title: "Documentation",
       icon: BookIcon,
       onPress: () => {
-        WebBrowserService.openBrowserAsync('https://akveo.github.io/react-native-ui-kitten');
+        WebBrowserService.openBrowserAsync(
+          "https://akveo.github.io/react-native-ui-kitten"
+        );
         navigation.toggleDrawer();
       },
     },
   ];
 
   const renderHeader = (): ReactElement => (
-    <SafeAreaLayout insets='top' level='2'>
-      <Layout style={styles.header} level='2'>
+    <SafeAreaLayout insets="top" level="2">
+      <Layout style={styles.header} level="2">
         <View style={styles.profileContainer}>
           <Avatar
-            size='giant'
-            source={require('../../assets/images/image-app-icon.png')}
+            size="giant"
+            source={require("../../assets/images/image-app-icon.png")}
           />
-          <Text style={styles.profileName} category='h6'>
-            Kitten Tricks
+          <Text style={styles.profileName} category="h6">
+            Cement App
           </Text>
         </View>
       </Layout>
@@ -56,7 +58,7 @@ export const HomeDrawer = ({ navigation }): DrawerElement => {
   );
 
   const renderFooter = () => (
-    <SafeAreaLayout insets='bottom'>
+    <SafeAreaLayout insets="bottom">
       <React.Fragment>
         <Divider />
         <View style={styles.footer}>
@@ -92,16 +94,16 @@ const styles = StyleSheet.create({
   header: {
     height: 128,
     paddingHorizontal: 16,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   footer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    flexDirection: "row",
+    justifyContent: "flex-start",
     marginLeft: 16,
   },
   profileContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   profileName: {
     marginHorizontal: 16,

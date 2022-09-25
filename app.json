@@ -1,19 +1,19 @@
 {
   "expo": {
-    "name": "Kitten Tricks",
+    "name": "Cement App",
     "slug": "kitten-tricks",
-    "version": "2.4.0",
+    "version": "1.0.0",
     "description": "UI Kitten Demo Application",
-    "githubUrl": "https://github.com/akveo/kittenTricks",
+    "githubUrl": "https://github.com/akveo/CementApp",
     "ios": {
-      "bundleIdentifier": "com.akveo.kittentricks",
+      "bundleIdentifier": "com.akveo.CementApp",
       "appStoreUrl": "https://itunes.apple.com/us/app/kitten-tricks/id1246143230",
       "buildNumber": "3"
     },
     "android": {
-      "package": "com.akveo.kittenTricks",
-      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.akveo.kittenTricks",
-      "versionCode": 3
+      "package": "com.akveo.CementApp",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.akveo.CementApp",
+      "versionCode": 1
     },
     "privacy": "public",
     "platforms": [

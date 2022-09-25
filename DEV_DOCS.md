@@ -10,7 +10,7 @@ Before running, application dependencies should be installed and linked.
 
 `yarn && npx react-native link && cd ios && pod install` from the project root.
 
-By default, Kitten Tricks starts like a regular React Native application. In case you want it to run
+By default, Cement App starts like a regular React Native application. In case you want it to run
 with Expo, see [Expo](#run-with-expo) section.
 
 `yarn start` from the project root to start Metro Bundler.
@@ -23,11 +23,11 @@ application on iOS, Android or Web.
 
 When running with Expo, `ios` and `android` folder are not needed for this project.
 Also, some of the business logic may have different implementation for Expo and Bare React Native apps.
-In Kitten Tricks, we handle it with [`.expo` file extension](https://docs.expo.io/versions/latest/bare/using-expo-client/#practical-patterns-for-client-compatible-bare-apps).
+In Cement App, we handle it with [`.expo` file extension](https://docs.expo.io/versions/latest/bare/using-expo-client/#practical-patterns-for-client-compatible-bare-apps).
 
 # Environments
 
-Kitten Tricks application supports two environments: 
+Cement App application supports two environments:
 
 - **Production** (Provides Eva Design System and UI Kitten modules published to npm)
 - **Development** (Provides local Eva Design System and UI Kitten modules)
@@ -42,25 +42,28 @@ To switch environment manually, you can run `yarn env prod` or `yarn env dev`.
 
 ## Development mode
 
-- Clone Eva Design System and UI Kitten projects to the directory containing Kitten Tricks:
+- Clone Eva Design System and UI Kitten projects to the directory containing Cement App:
+
 ```bash
 git clone https://github.com/eva-design/eva && git clone https://github.com/akveo/react-native-ui-kitten
 ```
 
 - **IMPORTANT:** Ensure you have the following structure of repositories:
+
 ```
 - /
   - eva
-  - kittenTricks
+  - CementApp
   - react-native-ui-kitten
 ```
+
 - Install dependencies if needed and finally run `yarn start:dev`
 
 # Building
 
 ## Transpile to JavaScript
 
-We use [Typescript](https://www.typescriptlang.org/) to build Kitten Tricks.
+We use [Typescript](https://www.typescriptlang.org/) to build Cement App.
 Use `yarn build` to compile it to JavaScript. This will output the source code with `.js` files in
 [`./dist/tsc-out`](./dist/tsc-out) dir.
 
@@ -73,7 +76,7 @@ This will output web bundle in [`./web-build`](./web-build) dir.
 
 # Reusing Screens
 
-All screens presented in Kitten Tricks application are listed in [`./src/layouts`](./src/layouts) directory and structured by following categories: 
+All screens presented in Cement App application are listed in [`./src/layouts`](./src/layouts) directory and structured by following categories:
 
 - [Auth](./src/layouts/auth)
 - [Social](./src/layouts/social)
@@ -88,6 +91,7 @@ Some of the screens may contain 3rd-party modules that need to be installed.
 You can find them in `3rd-party.ts` files.
 
 E.g in case of reusing `Forgot Password` screen, you may need:
+
 - Copy [Forgot Password](./src/layouts/auth/forgot-password) directory into your project
 - Install and configure 3rd-party modules listed in [3rd-party.ts](./src/layouts/auth/forgot-password/extra/3rd-party.ts) file.
 

@@ -1,14 +1,14 @@
 {
   "name": "kitten-tricks",
   "description": "UI Kitten Demo Application",
-  "version": "2.4.0",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "author": "akveo <contact@akveo.com>",
-  "homepage": "https://github.com/akveo/kittenTricks#readme",
-  "repository": "git+https://github.com/akveo/kittenTricks.git",
+  "homepage": "https://github.com/akveo/CementApp#readme",
+  "repository": "git+https://github.com/akveo/CementApp.git",
   "bugs": {
-    "url": "https://github.com/akveo/kittenTricks/issues"
+    "url": "https://github.com/akveo/CementApp/issues"
   },
   "main": "./index.js",
   "workspaces": {
